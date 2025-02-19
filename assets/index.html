@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Michael Kocovic - Portfolio</title>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.js"></script>
+        <link
+            href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"
+            rel="stylesheet" />
+    </head>
+    <body class="bg-gray-900 text-gray-100">
+        <div class="min-h-screen">
+            <!-- Header Section -->
+            <header class="p-4 bg-gray-800 bg-opacity-90">
+                <div
+                    class="max-w-6xl mx-auto flex justify-between items-center">
+                    <div class="text-2xl font-bold text-blue-400">MK.</div>
+                    <div class="flex space-x-6">
+                        <button
+                            onclick="switchTab('about')"
+                            id="aboutTab"
+                            class="tab-button active hover:text-blue-400 transition">
+                            About
+                        </button>
+                        <button
+                            onclick="switchTab('projects')"
+                            id="projectsTab"
+                            class="tab-button hover:text-blue-400 transition">
+                            Projects
+                        </button>
+                    </div>
+                </div>
+            </header>
+
+            <!-- Main Content -->
+            <main class="max-w-6xl mx-auto p-4">
+                <!-- About Section -->
+                <section id="aboutContent" class="tab-content">
+                    <div
+                        class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center mb-12">
+                        <div>
+                            <h1 class="text-5xl font-bold mb-4">
+                                Michael Kocovic
+                            </h1>
+                            <div class="text-xl text-blue-400 mb-6">
+                                DevOps Intern & Graduate Student
+                            </div>
+                            <p class="text-gray-400 mb-8">
+                                Computer Science graduate student at Fordham
+                                University with a focus on backend development
+                                and DevOps practices. Currently exploring Spring
+                                Boot and CUDA with C++.
+                            </p>
+                            <div class="flex space-x-4 mb-8">
+                                <a
+                                    href="mailto:michaelk2ny@gmail.com"
+                                    class="bg-blue-600 hover:bg-blue-700 px-6 py-3 rounded-lg transition">
+                                    Contact Me
+                                </a>
+                                <a
+                                    href="https://github.com/mkocovic2"
+                                    class="border border-blue-600 px-6 py-3 rounded-lg hover:bg-blue-600 transition">
+                                    GitHub
+                                </a>
+                            </div>
+                        </div>
+                        <div class="hidden md:block">
+                            <img
+                                src="/api/placeholder/500/500"
+                                alt="Developer Illustration"
+                                class="w-full rounded-lg" />
+                        </div>
+                    </div>
+
+                    <!-- Skills & Experience -->
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
+                        <div class="bg-gray-800 p-6 rounded-lg">
+                            <h2 class="text-2xl font-bold mb-6">Skills</h2>
+                            <div class="space-y-4">
+                                <div>
+                                    <div class="flex justify-between mb-1">
+                                        <span>C++</span>
+                                        <span>80%</span>
+                                    </div>
+                                    <div
+                                        class="w-full bg-gray-700 rounded-full h-2">
+                                        <div
+                                            class="bg-blue-500 rounded-full h-2"
+                                            style="width: 80%"></div>
+                                    </div>
+                                </div>
+                                <div>
+                                    <div class="flex justify-between mb-1">
+                                        <span>C#</span>
+                                        <span>70%</span>
+                                    </div>
+                                    <div
+                                        class="w-full bg-gray-700 rounded-full h-2">
+                                        <div
+                                            class="bg-blue-500 rounded-full h-2"
+                                            style="width: 70%"></div>
+                                    </div>
+                                </div>
+                                <div>
+                                    <div class="flex justify-between mb-1">
+                                        <span>Java</span>
+                                        <span>60%</span>
+                                    </div>
+                                    <div
+                                        class="w-full bg-gray-700 rounded-full h-2">
+                                        <div
+                                            class="bg-blue-500 rounded-full h-2"
+                                            style="width: 60%"></div>
+                                    </div>
+                                </div>
+                                <div>
+                                    <div class="flex justify-between mb-1">
+                                        <span>Python</span>
+                                        <span>40%</span>
+                                    </div>
+                                    <div
+                                        class="w-full bg-gray-700 rounded-full h-2">
+                                        <div
+                                            class="bg-blue-500 rounded-full h-2"
+                                            style="width: 40%"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="bg-gray-800 p-6 rounded-lg">
+                            <h2 class="text-2xl font-bold mb-6">Experience</h2>
+                            <div class="space-y-6">
+                                <div>
+                                    <div
+                                        class="flex justify-between items-start mb-2">
+                                        <h3 class="text-xl font-bold">
+                                            DevOps Intern
+                                        </h3>
+                                        <span class="text-sm text-gray-400"
+                                            >2024 - Present</span
+                                        >
+                                    </div>
+                                    <p class="text-blue-400 mb-2">
+                                        Fordham University
+                                    </p>
+                                    <p class="text-gray-400">
+                                        Implementing web APIs using C# in Hyland
+                                        Cloud environment.
+                                    </p>
+                                </div>
+                                <div>
+                                    <div
+                                        class="flex justify-between items-start mb-2">
+                                        <h3 class="text-xl font-bold">
+                                            Code Quality Analyst
+                                        </h3>
+                                        <span class="text-sm text-gray-400"
+                                            >2024 - Present</span
+                                        >
+                                    </div>
+                                    <p class="text-blue-400 mb-2">
+                                        Data Annotation
+                                    </p>
+                                    <p class="text-gray-400">
+                                        Optimizing code performance and
+                                        providing detailed analysis.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Projects Section -->
+                <section id="projectsContent" class="tab-content hidden">
+                    <h2 class="text-3xl font-bold mb-8">Featured Projects</h2>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div class="bg-gray-800 p-6 rounded-lg">
+                            <h3 class="text-xl font-bold mb-2">
+                                Homelab Infrastructure
+                            </h3>
+                            <p class="text-gray-400 mb-4">
+                                Linux-based media server supporting multiple
+                                concurrent users with robust file organization
+                                and access control systems.
+                            </p>
+                            <div class="flex flex-wrap gap-2 mb-4">
+                                <span
+                                    class="px-3 py-1 bg-blue-900 rounded-full text-sm"
+                                    >Linux</span
+                                >
+                                <span
+                                    class="px-3 py-1 bg-blue-900 rounded-full text-sm"
+                                    >MySQL</span
+                                >
+                                <span
+                                    class="px-3 py-1 bg-blue-900 rounded-full text-sm"
+                                    >MongoDB</span
+                                >
+                            </div>
+                        </div>
+
+                        <div class="bg-gray-800 p-6 rounded-lg">
+                            <h3 class="text-xl font-bold mb-2">
+                                System Monitoring API
+                            </h3>
+                            <p class="text-gray-400 mb-4">
+                                Flask-based API providing real-time system
+                                metrics with robust security measures including
+                                Bearer token authentication.
+                            </p>
+                            <div class="flex flex-wrap gap-2 mb-4">
+                                <span
+                                    class="px-3 py-1 bg-blue-900 rounded-full text-sm"
+                                    >Python</span
+                                >
+                                <span
+                                    class="px-3 py-1 bg-blue-900 rounded-full text-sm"
+                                    >Flask</span
+                                >
+                                <span
+                                    class="px-3 py-1 bg-blue-900 rounded-full text-sm"
+                                    >API</span
+                                >
+                            </div>
+                        </div>
+
+                        <div class="bg-gray-800 p-6 rounded-lg">
+                            <h3 class="text-xl font-bold mb-2">PNF Game</h3>
+                            <p class="text-gray-400 mb-4">
+                                Multiplayer game developed with Unity & C#,
+                                featuring real-time interaction and modern
+                                gaming mechanics.
+                            </p>
+                            <div class="flex flex-wrap gap-2 mb-4">
+                                <span
+                                    class="px-3 py-1 bg-blue-900 rounded-full text-sm"
+                                    >Unity</span
+                                >
+                                <span
+                                    class="px-3 py-1 bg-blue-900 rounded-full text-sm"
+                                    >C#</span
+                                >
+                                <span
+                                    class="px-3 py-1 bg-blue-900 rounded-full text-sm"
+                                    >Multiplayer</span
+                                >
+                            </div>
+                        </div>
+
+                        <div class="bg-gray-800 p-6 rounded-lg">
+                            <h3 class="text-xl font-bold mb-2">PoolStack</h3>
+                            <p class="text-gray-400 mb-4">
+                                Queue management system for pool players using
+                                Firebase, streamlining player organization and
+                                game scheduling.
+                            </p>
+                            <div class="flex flex-wrap gap-2 mb-4">
+                                <span
+                                    class="px-3 py-1 bg-blue-900 rounded-full text-sm"
+                                    >Firebase</span
+                                >
+                                <span
+                                    class="px-3 py-1 bg-blue-900 rounded-full text-sm"
+                                    >JavaScript</span
+                                >
+                                <span
+                                    class="px-3 py-1 bg-blue-900 rounded-full text-sm"
+                                    >Real-time</span
+                                >
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </main>
+
+            <!-- Footer -->
+            <footer class="bg-gray-800 py-6 mt-12">
+                <div class="max-w-6xl mx-auto px-4 text-center text-gray-400">
+                    © 2024 Michael Kocovic. All rights reserved.
+                </div>
+            </footer>
+        </div>
+
+        <script>
+            function switchTab(tabName) {
+                // Hide all content sections
+                document.querySelectorAll(".tab-content").forEach((content) => {
+                    content.classList.add("hidden");
+                });
+
+                // Show selected content
+                document
+                    .getElementById(tabName + "Content")
+                    .classList.remove("hidden");
+
+                // Update active tab styling
+                document.querySelectorAll(".tab-button").forEach((button) => {
+                    button.classList.remove("text-blue-400");
+                });
+                document
+                    .getElementById(tabName + "Tab")
+                    .classList.add("text-blue-400");
+            }
+        </script>
+    </body>
+</html>
