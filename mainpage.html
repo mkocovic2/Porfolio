@@ -1,906 +1,561 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Michael Kocovic - Portfolio</title>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/particles.js/2.0.0/particles.min.js"></script>
-        <link
-            href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"
-            rel="stylesheet" />
-        <link rel="stylesheet" href="styles.css" />
-    </head>
-    <body class="bg-black text-gray-100">
-        <div class="page-container">
-            <!-- Header Section -->
-            <header class="p-4 bg-black bg-opacity-90">
-                <div
-                    class="max-w-6xl mx-auto flex justify-between items-center">
-                    <div class="text-2xl font-bold text-blue-400">MK.</div>
-                    <div class="flex space-x-6">
-                        <a
-                            href="./mainpage.html"
-                            class="hover:text-blue-400 transition"
-                            >About</a
-                        >
-                        <a
-                            href="./featured.html"
-                            class="hover:text-blue-400 transition"
-                            >Projects</a
-                        >
-                    </div>
-                </div>
-            </header>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Michael Kocovic | Portfolio</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/typed.js/2.0.12/typed.min.js"></script>
+    <style>
+        body {
+            background-color: #000;
+            color: #f1f1f1;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            overflow-x: hidden;
+        }
+        .nav-link {
+            position: relative;
+        }
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 1px;
+            bottom: -2px;
+            left: 0;
+            background-color: white;
+            transition: width 0.3s ease;
+        }
+        .nav-link:hover::after {
+            width: 100%;
+        }
+        .hidden-section {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.8s, transform 0.8s;
+        }
+        .visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        #particles-js {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+        }
+        .content {
+            position: relative;
+            z-index: 10;
+        }
+        .typing-text {
+            color: #3B82F6;
+            font-weight: bold;
+        }
+        .project-item {
+            position: relative;
+            padding: 2rem 0;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            transition: all 0.3s ease;
+        }
+        .project-item:hover {
+            background: rgba(255,255,255,0.02);
+        }
+        .skill-item {
+            display: inline-block;
+            margin-right: 0.8rem;
+            margin-bottom: 0.8rem;
+            position: relative;
+        }
+        .skill-item:after {
+            content: '•';
+            position: absolute;
+            right: -0.6rem;
+            color: rgba(255,255,255,0.3);
+        }
+        .skill-item:last-child:after {
+            display: none;
+        }
+    </style>
+</head>
+<body class="antialiased">
+    <div id="particles-js"></div>
+    
+    <div class="content">
+        <!-- Navigation -->
+        <nav class="container mx-auto px-6 py-6 flex justify-between items-center">
+            <a href="#" class="text-xl font-medium">MK</a>
+            <ul class="hidden md:flex space-x-8">
+                <li><a href="#about" class="nav-link text-gray-400 hover:text-white">About</a></li>
+                <li><a href="#experience" class="nav-link text-gray-400 hover:text-white">Experience</a></li>
+                <li><a href="#projects" class="nav-link text-gray-400 hover:text-white">Projects</a></li>
+                <li><a href="#skills" class="nav-link text-gray-400 hover:text-white">Skills</a></li>
+                <li><a href="#contact" class="nav-link text-gray-400 hover:text-white">Contact</a></li>
+            </ul>
+            <div class="md:hidden">
+                <button id="menu-toggle" class="text-white focus:outline-none">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </nav>
 
-            <!-- Main Content -->
-            <main class="content-wrapper max-w-6xl mx-auto p-4">
-                <!-- About Section -->
-                <section id="aboutContent" class="tab-content">
-                    <!-- Hero Section -->
-                    <div
-                        class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center mb-12">
-                        <div>
-                            <h1 class="text-5xl font-bold mb-4 fade-in">
-                                Michael Kocovic
-                            </h1>
-                            <div
-                                class="text-xl text-blue-400 mb-6 fade-in stagger-delay-1">
-                                DevOps Intern & Graduate Student
-                            </div>
-                            <p
-                                class="text-gray-400 mb-8 fade-in stagger-delay-2">
-                                Computer Science graduate student at Fordham
-                                University with a focus on backend development
-                                and DevOps practices. Currently exploring Spring
-                                Boot and CUDA with C++.
-                            </p>
-                            <div
-                                class="flex space-x-4 mb-8 fade-in stagger-delay-3">
-                                <a
-                                    href="mailto:michaelk2ny@gmail.com"
-                                    class="bg-blue-600 hover:bg-blue-700 px-6 py-3 rounded-lg transition">
-                                    Contact Me
-                                </a>
-                                <a
-                                    href="https://github.com/mkocovic2"
-                                    class="border border-blue-600 px-6 py-3 rounded-lg hover:bg-blue-600 transition">
-                                    GitHub
-                                </a>
-                            </div>
-                        </div>
-                        <div class="hidden md:block fade-in stagger-delay-4">
-                            <img
-                                src="assets/me.jpg"
-                                alt="Developer Illustration"
-                                class="w-full rounded-lg" />
-                        </div>
-                    </div>
-
-                    <!-- Skills & Experience -->
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
-                        <div
-                            class="bg-black p-6 rounded-lg fade-in border-2 border-blue-400">
-                            <h2 class="text-2xl font-bold mb-6">Skills</h2>
-                            <div class="space-y-4">
-                                <div>
-                                    <div class="flex justify-between mb-1">
-                                        <span>C++</span>
-                                        <span>80%</span>
-                                    </div>
-                                    <div
-                                        class="w-full bg-gray-700 rounded-full h-2">
-                                        <div
-                                            class="skill-bar bg-blue-500 rounded-full h-2"
-                                            data-width="80%"></div>
-                                    </div>
-                                </div>
-                                <div>
-                                    <div class="flex justify-between mb-1">
-                                        <span>C#</span>
-                                        <span>70%</span>
-                                    </div>
-                                    <div
-                                        class="w-full bg-gray-700 rounded-full h-2">
-                                        <div
-                                            class="skill-bar bg-blue-500 rounded-full h-2"
-                                            data-width="70%"></div>
-                                    </div>
-                                </div>
-                                <div>
-                                    <div class="flex justify-between mb-1">
-                                        <span>Java</span>
-                                        <span>60%</span>
-                                    </div>
-                                    <div
-                                        class="w-full bg-gray-700 rounded-full h-2">
-                                        <div
-                                            class="skill-bar bg-blue-500 rounded-full h-2"
-                                            data-width="60%"></div>
-                                    </div>
-                                </div>
-                                <div>
-                                    <div class="flex justify-between mb-1">
-                                        <span>Python</span>
-                                        <span>40%</span>
-                                    </div>
-                                    <div
-                                        class="w-full bg-gray-700 rounded-full h-2">
-                                        <div
-                                            class="skill-bar bg-blue-500 rounded-full h-2"
-                                            data-width="40%"></div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div
-                            class="p-6 rounded-lg fade-in stagger-delay-1 border-2 border-blue-400">
-                            <h2 class="text-2xl font-bold mb-6">Education</h2>
-                            <div class="space-y-6">
-                                <div>
-                                    <div
-                                        class="flex justify-between items-start mb-2">
-                                        <div class="flex items-center gap-4">
-                                            <img
-                                                src="./assets/Fordham_GSAS.png"
-                                                alt="Fordham University Logo"
-                                                class="w-12 h-12 object-cover rounded-full" />
-                                            <div>
-                                                <h3 class="text-xl font-bold">
-                                                    M.S in Computer Science
-                                                </h3>
-                                                <p class="text-blue-400">
-                                                    Fordham University
-                                                </p>
-                                            </div>
-                                        </div>
-                                        <span class="text-sm text-gray-400"
-                                            >Expected May 2026
-                                        </span>
-                                    </div>
-                                    <p class="text-gray-400 mt-2">
-                                        Implementing web APIs using C# in Hyland
-                                        Cloud environment.
-                                    </p>
-                                </div>
-                                <div>
-                                    <div
-                                        class="flex justify-between items-start mb-2">
-                                        <div class="flex items-center gap-4">
-                                            <img
-                                                src="./assets/Fordham.png"
-                                                alt="Data Annotation Logo"
-                                                class="w-12 h-12 object-cover rounded-full" />
-                                            <div>
-                                                <h3 class="text-xl font-bold">
-                                                    B.S in Computer Science
-                                                </h3>
-                                                <p class="text-blue-400">
-                                                    Fordham University
-                                                </p>
-                                            </div>
-                                        </div>
-                                        <span class="text-sm text-gray-400"
-                                            >Expected May 2025
-                                        </span>
-                                    </div>
-                                    <p class="text-gray-400 mt-2">
-                                        Optimizing code performance and
-                                        providing detailed analysis.
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="p-6 rounded-lg fade-in stagger-delay-2 mt-6">
-                        <h2 class="text-2xl font-bold mb-6">Experience</h2>
-                        <div class="space-y-6 relative">
-                            <!-- Vertical Timeline Line -->
-                            <div
-                                class="absolute left-6 top-6 bottom-6 w-px bg-gray-700"></div>
-
-                            <div class="relative">
-                                <div
-                                    class="flex justify-between items-start mb-2">
-                                    <div class="flex items-center gap-4">
-                                        <div
-                                            class="w-12 h-12 bg-blue-600 rounded-full flex items-center justify-center relative z-10">
-                                            <img
-                                                src="./assets/Fordham.png"
-                                                alt="Data Annotation Logo"
-                                                class="w-12 h-12 object-cover rounded-full" />
-                                        </div>
-                                        <div>
-                                            <h3 class="text-xl font-bold">
-                                                DevOps Intern
-                                            </h3>
-                                            <p class="text-blue-400">
-                                                Fordham University
-                                            </p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="ml-16">
-                                    <ul
-                                        class="text-gray-400 mt-2 list-disc pl-6 space-y-2">
-                                        <li>
-                                            Led the development of dynamic and
-                                            interactive web application using
-                                            React.js and Next.js, and HTML5/CSS3
-                                            for a high-traffic restaurant
-                                            management software.
-                                        </li>
-                                        <li>
-                                            Transformed a simple restaurant
-                                            management software app to a feature
-                                            loaded app resulting in more than
-                                            2000 plus registered restaurant in
-                                            the platform.
-                                        </li>
-                                        <li>
-                                            Web App:
-                                            <a
-                                                href="#"
-                                                class="text-blue-400 hover:underline"
-                                                >RestroX</a
-                                            >
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-
-                            <div class="relative">
-                                <div
-                                    class="flex justify-between items-start mb-2">
-                                    <div class="flex items-center gap-4">
-                                        <div
-                                            class="w-12 h-12 bg-green-600 rounded-full flex items-center justify-center relative z-10">
-                                            <img
-                                                src="./assets/DAa.png"
-                                                alt="Data Annotation Logo"
-                                                class="w-12 h-12 object-cover rounded-full" />
-                                        </div>
-                                        <div>
-                                            <h3 class="text-xl font-bold">
-                                                Junior Software Developer at
-                                                Eversoft
-                                            </h3>
-                                            <p class="text-blue-400">
-                                                Jul 2021 - Jun 2022
-                                            </p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="ml-16">
-                                    <p class="text-gray-400 mt-2">
-                                        Engaged in a variety of projects,
-                                        demonstrating proficiency in frontend
-                                        like React.js, React Native, Next.js and
-                                        backend technologies like node.js,
-                                        GraphQL, Django framework. Hands-on
-                                        experience on microservice, Keycloak
-                                        service, AWS service and Google Tag
-                                        Manager for dynamic content delivery.
-                                    </p>
-                                </div>
-                            </div>
-
-                            <div class="relative">
-                                <div
-                                    class="flex justify-between items-start mb-2">
-                                    <div class="flex items-center gap-4">
-                                        <div
-                                            class="w-12 h-12 bg-purple-600 rounded-full flex items-center justify-center relative z-10">
-                                            <span class="text-2xl">E</span>
-                                        </div>
-                                        <div>
-                                            <h3 class="text-xl font-bold">
-                                                Software Developer Intern at
-                                                Eversoft
-                                            </h3>
-                                            <p class="text-blue-400">
-                                                Mar 2021 - Jun 2021
-                                            </p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="ml-16">
-                                    <ul
-                                        class="text-gray-400 mt-2 list-disc pl-6 space-y-2">
-                                        <li>
-                                            Developed and maintained strong
-                                            client relationships through
-                                            effective communication and project
-                                            management.
-                                        </li>
-                                        <li>
-                                            Utilized tools such as Notion for
-                                            project tracking, Mailchimp for
-                                            email marketing designs, Slack for
-                                            team collaboration, and GitHub for
-                                            version control and project sharing.
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- [Previous hero and skills sections remain the same] -->
-
-                    <section class="mb-16 max-w-6xl mx-auto relative">
-                        <h2 class="text-3xl font-bold mb-12 fade-in">
-                            Projects
-                        </h2>
-
-                        <!-- Vertical Timeline Line -->
-                        <div
-                            class="absolute left-1/2 top-24 bottom-0 w-px bg-gray-700 transform -translate-x-1/2"></div>
-
-                        <div
-                            class="grid grid-cols-1 md:grid-cols-2 gap-8 relative">
-                            <!-- Server Monitoring API -->
-                            <div class="bg-[#1a1a1a] rounded-lg p-8 fade-in">
-                                <div class="flex flex-col items-start gap-6">
-                                    <div class="flex items-start gap-6">
-                                        <div class="flex-shrink-0">
-                                            <div
-                                                class="rounded-lg flex items-center justify-center">
-                                                <img
-                                                    src="./assets/API.png"
-                                                    alt="Project Icon"
-                                                    class="w-18 h-16" />
-                                            </div>
-                                        </div>
-                                        <div class="flex-grow">
-                                            <h3
-                                                class="text-2xl font-bold text-white mb-1">
-                                                Server Monitoring API
-                                            </h3>
-                                            <p
-                                                class="text-gray-400 text-lg mb-4">
-                                                Mid-level Frontend Engineer
-                                            </p>
-                                            <p class="text-gray-400 mb-6">
-                                                A Flask-based REST API that
-                                                provides system monitoring
-                                                capabilities including CPU,
-                                                memory, disk, and network
-                                                information.
-                                            </p>
-                                            <div class="flex flex-wrap gap-2">
-                                                <span
-                                                    class="px-3 py-1 bg-blue-600 rounded-full text-sm"
-                                                    >Python</span
-                                                >
-                                                <span
-                                                    class="px-3 py-1 bg-green-600 rounded-full text-sm"
-                                                    >Flask</span
-                                                >
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <!-- SudoCu -->
-                            <div class="bg-[#1a1a1a] rounded-lg p-8 fade-in">
-                                <div class="flex flex-col items-start gap-6">
-                                    <div class="flex items-start gap-6">
-                                        <div class="flex-shrink-0">
-                                            <div
-                                                class="w-16 h-16 rounded-lg flex items-center justify-center">
-                                                <img
-                                                    src="./assets/sudocu.png"
-                                                    alt="Project Icon"
-                                                    class="w-16 h-16" />
-                                            </div>
-                                        </div>
-                                        <div class="flex-grow">
-                                            <h3
-                                                class="text-2xl font-bold text-white mb-1">
-                                                SudoCu
-                                            </h3>
-                                            <p
-                                                class="text-gray-400 text-lg mb-4">
-                                                Project Author
-                                            </p>
-                                            <p class="text-gray-400 mb-6">
-                                                This project is a feature-rich
-                                                Sudoku solving app designed to
-                                                provide an engaging and
-                                                customizable experience for
-                                                users of all skill levels.
-                                            </p>
-                                            <div class="flex flex-wrap gap-2">
-                                                <span
-                                                    class="px-3 py-1 bg-green-600 rounded-full text-sm"
-                                                    >Angular</span
-                                                >
-                                                <span
-                                                    class="px-3 py-1 bg-yellow-600 rounded-full text-sm"
-                                                    >Python</span
-                                                >
-                                                <span
-                                                    class="px-3 py-1 bg-red-600 rounded-full text-sm"
-                                                    >Flask</span
-                                                >
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <!-- PoolStack -->
-                            <div class="bg-[#1a1a1a] rounded-lg p-8 fade-in">
-                                <div class="flex flex-col items-start gap-6">
-                                    <div class="flex items-start gap-6">
-                                        <div class="flex-shrink-0">
-                                            <div
-                                                class="rounded-lg flex items-center justify-center">
-                                                <img
-                                                    src="./assets/stack.png"
-                                                    alt="Project Icon"
-                                                    class="w-16 h-15" />
-                                            </div>
-                                        </div>
-                                        <div class="flex-grow">
-                                            <h3
-                                                class="text-2xl font-bold text-white mb-1">
-                                                PoolStack
-                                            </h3>
-                                            <p
-                                                class="text-gray-400 text-lg mb-4">
-                                                Frontend Developer
-                                            </p>
-                                            <p class="text-gray-400 mb-6">
-                                                A comprehensive e-commerce
-                                                backend built with Spring Boot,
-                                                featuring user authentication,
-                                                product management, and order
-                                                processing.
-                                            </p>
-                                            <div class="flex flex-wrap gap-2">
-                                                <span
-                                                    class="px-3 py-1 bg-blue-600 rounded-full text-sm"
-                                                    >Java</span
-                                                >
-                                                <span
-                                                    class="px-3 py-1 bg-green-600 rounded-full text-sm"
-                                                    >Spring Boot</span
-                                                >
-                                                <span
-                                                    class="px-3 py-1 bg-yellow-600 rounded-full text-sm"
-                                                    >MySQL</span
-                                                >
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <!-- MotorMatch -->
-                            <div class="bg-[#1a1a1a] rounded-lg p-8 fade-in">
-                                <div class="flex flex-col items-start gap-6">
-                                    <div class="flex items-start gap-6">
-                                        <div class="flex-shrink-0">
-                                            <div
-                                                class="rounded-lg flex items-center justify-center">
-                                                <img
-                                                    src="./assets/mm-Photoroom.png"
-                                                    alt="Project Icon"
-                                                    class="w-13 h-16" />
-                                            </div>
-                                        </div>
-                                        <div class="flex-grow">
-                                            <h3
-                                                class="text-2xl font-bold text-white mb-1">
-                                                MotorMatch
-                                            </h3>
-                                            <p
-                                                class="text-gray-400 text-lg mb-4">
-                                                Technical Writer
-                                            </p>
-                                            <p class="text-gray-400 mb-6">
-                                                A WebSocket-based chat
-                                                application with real-time
-                                                messaging, user presence
-                                                detection, and message history.
-                                            </p>
-                                            <div class="flex flex-wrap gap-2">
-                                                <span
-                                                    class="px-3 py-1 bg-purple-600 rounded-full text-sm"
-                                                    >React</span
-                                                >
-                                                <span
-                                                    class="px-3 py-1 bg-blue-600 rounded-full text-sm"
-                                                    >Node.js</span
-                                                >
-                                                <span
-                                                    class="px-3 py-1 bg-green-600 rounded-full text-sm"
-                                                    >MongoDB</span
-                                                >
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </section>
-
-                    <!-- [Previous footer section remains the same] -->
-                    <div class="mb-8">
-                        <h2 class="text-2xl font-bold mb-6">
-                            Tools & Technologies
-                        </h2>
-                        <div class="border-b border-gray-700 mb-6">
-                            <div class="flex space-x-8">
-                                <button
-                                    onclick="switchCardTab('tab1')"
-                                    id="tab1Button"
-                                    class="text-blue-400 border-b-2 border-blue-400 pb-2 px-4 transition-colors duration-300">
-                                    API Tools
-                                </button>
-                                <button
-                                    onclick="switchCardTab('tab2')"
-                                    id="tab2Button"
-                                    class="text-gray-400 hover:text-blue-400 pb-2 px-4 transition-colors duration-300">
-                                    DevOps Tools
-                                </button>
-                                <button
-                                    onclick="switchCardTab('tab3')"
-                                    id="tab3Button"
-                                    class="text-gray-400 hover:text-blue-400 pb-2 px-4 transition-colors duration-300">
-                                    Server Tools
-                                </button>
-                            </div>
-                        </div>
-
-                        <!-- Tab Content -->
-                        <div id="tab1Content" class="tab-panel">
-                            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                                <div
-                                    class="bg-gray-800 rounded-lg overflow-hidden shadow-lg transition-transform duration-300 hover:transform hover:scale-105">
-                                    <img
-                                        src="https://images.seeklogo.com/logo-png/38/1/spring-boot-logo-png_seeklogo-385503.png?v=1957906706263657168"
-                                        alt="Card 1"
-                                        class="w-full h-48 object-cover" />
-                                    <div class="p-6">
-                                        <h3 class="text-xl font-bold mb-2">
-                                            Spring Boot
-                                        </h3>
-                                        <p class="text-gray-400">
-                                            Lorem ipsum dolor sit amet,
-                                            consectetur adipiscing elit. Sed do
-                                            eiusmod tempor incididunt ut labore
-                                            et dolore magna aliqua.
-                                        </p>
-                                    </div>
-                                </div>
-                                <div
-                                    class="bg-gray-800 rounded-lg overflow-hidden shadow-lg transition-transform duration-300 hover:transform hover:scale-105">
-                                    <img
-                                        src="https://images.seeklogo.com/logo-png/48/1/flask-logo-png_seeklogo-483739.png?v=1957832936172609000"
-                                        alt="Card 2"
-                                        class="w-full h-48 object-cover" />
-                                    <div class="p-6">
-                                        <h3 class="text-xl font-bold mb-2">
-                                            Flask
-                                        </h3>
-                                        <p class="text-gray-400">
-                                            Ut enim ad minim veniam, quis
-                                            nostrud exercitation ullamco laboris
-                                            nisi ut aliquip ex ea commodo
-                                            consequat.
-                                        </p>
-                                    </div>
-                                </div>
-                                <div
-                                    class="bg-gray-800 rounded-lg overflow-hidden shadow-lg transition-transform duration-300 hover:transform hover:scale-105">
-                                    <img
-                                        src="https://images.seeklogo.com/logo-png/33/1/postman-logo-png_seeklogo-339967.png?v=1957913524779262720"
-                                        alt="Card 3"
-                                        class="w-full h-48 object-cover" />
-                                    <div class="p-6">
-                                        <h3 class="text-xl font-bold mb-2">
-                                            Postman
-                                        </h3>
-                                        <p class="text-gray-400">
-                                            Duis aute irure dolor in
-                                            reprehenderit in voluptate velit
-                                            esse cillum dolore eu fugiat nulla
-                                            pariatur.
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div id="tab2Content" class="tab-panel hidden">
-                            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                                <div
-                                    class="bg-gray-800 rounded-lg overflow-hidden shadow-lg transition-transform duration-300 hover:transform hover:scale-105">
-                                    <img
-                                        src="https://seeklogo.com/images/D/docker-logo-6DE9A10F07-seeklogo.com.png"
-                                        alt="Card 4"
-                                        class="w-full h-48 object-cover" />
-                                    <div class="p-6">
-                                        <h3 class="text-xl font-bold mb-2">
-                                            Docker
-                                        </h3>
-                                        <p class="text-gray-400">
-                                            Excepteur sint occaecat cupidatat
-                                            non proident, sunt in culpa qui
-                                            officia deserunt mollit anim id est
-                                            laborum.
-                                        </p>
-                                    </div>
-                                </div>
-                                <div
-                                    class="bg-gray-800 rounded-lg overflow-hidden shadow-lg transition-transform duration-300 hover:transform hover:scale-105">
-                                    <img
-                                        src="https://images.seeklogo.com/logo-png/27/1/git-logo-png_seeklogo-273181.png?v=1957906238652521288"
-                                        alt="Card 5"
-                                        class="w-full h-48 object-cover" />
-                                    <div class="p-6">
-                                        <h3 class="text-xl font-bold mb-2">
-                                            Git
-                                        </h3>
-                                        <p class="text-gray-400">
-                                            Sed ut perspiciatis unde omnis iste
-                                            natus error sit voluptatem
-                                            accusantium doloremque laudantium.
-                                        </p>
-                                    </div>
-                                </div>
-                                <div
-                                    class="bg-gray-800 rounded-lg overflow-hidden shadow-lg transition-transform duration-300 hover:transform hover:scale-105">
-                                    <img
-                                        src="/api/placeholder/400/200"
-                                        alt="Card 6"
-                                        class="w-full h-48 object-cover" />
-                                    <div class="p-6">
-                                        <h3 class="text-xl font-bold mb-2">
-                                            Card Title 6
-                                        </h3>
-                                        <p class="text-gray-400">
-                                            Nemo enim ipsam voluptatem quia
-                                            voluptas sit aspernatur aut odit aut
-                                            fugit, sed quia consequuntur.
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div id="tab3Content" class="tab-panel hidden">
-                            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                                <div
-                                    class="bg-gray-800 rounded-lg overflow-hidden shadow-lg transition-transform duration-300 hover:transform hover:scale-105">
-                                    <img
-                                        src="/api/placeholder/400/200"
-                                        alt="Card 7"
-                                        class="w-full h-48 object-cover" />
-                                    <div class="p-6">
-                                        <h3 class="text-xl font-bold mb-2">
-                                            Card Title 7
-                                        </h3>
-                                        <p class="text-gray-400">
-                                            Neque porro quisquam est, qui
-                                            dolorem ipsum quia dolor sit amet,
-                                            consectetur, adipisci velit.
-                                        </p>
-                                    </div>
-                                </div>
-                                <div
-                                    class="bg-gray-800 rounded-lg overflow-hidden shadow-lg transition-transform duration-300 hover:transform hover:scale-105">
-                                    <img
-                                        src="/api/placeholder/400/200"
-                                        alt="Card 8"
-                                        class="w-full h-48 object-cover" />
-                                    <div class="p-6">
-                                        <h3 class="text-xl font-bold mb-2">
-                                            Card Title 8
-                                        </h3>
-                                        <p class="text-gray-400">
-                                            Quis autem vel eum iure
-                                            reprehenderit qui in ea voluptate
-                                            velit esse quam nihil molestiae
-                                            consequatur.
-                                        </p>
-                                    </div>
-                                </div>
-                                <div
-                                    class="bg-gray-800 rounded-lg overflow-hidden shadow-lg transition-transform duration-300 hover:transform hover:scale-105">
-                                    <img
-                                        src="/api/placeholder/400/200"
-                                        alt="Card 9"
-                                        class="w-full h-48 object-cover" />
-                                    <div class="p-6">
-                                        <h3 class="text-xl font-bold mb-2">
-                                            Card Title 9
-                                        </h3>
-                                        <p class="text-gray-400">
-                                            At vero eos et accusamus et iusto
-                                            odio dignissimos ducimus qui
-                                            blanditiis praesentium voluptatum.
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Tools & Technologies -->
-                    <div class="slider-container">
-                        <div class="slider">
-                            <img
-                                src="./assets/sliderImage/icons8-java-48.png"
-                                alt="Hyland Cloud" />
-                            <img
-                                src="./assets/sliderImage/icons8-c-programming-48.png"
-                                alt="MongoDB" />
-                            <img
-                                src="./assets/sliderImage/icons8-c++-48.png"
-                                alt="Git" />
-                            <img
-                                src="./assets/sliderImage/icons8-ubuntu-48.png"
-                                alt="Postman" />
-                            <img
-                                src="./assets/sliderImage/icons8-arch-linux-48.png"
-                                alt="UML" />
-                            <img
-                                src="./assets/sliderImage/icons8-spring-boot-48.png"
-                                alt="Visual Studio" />
-                            <img
-                                src="./assets/sliderImage/icons8-kubernetes-48.png"
-                                alt="Firebase" />
-                            <img
-                                src="./assets/sliderImage/icons8-docker-48.png"
-                                alt="Ubuntu Linux" />
-                            <img
-                                src="./assets/sliderImage/icons8-mysql-48.png"
-                                alt="MySQL" />
-                            <img
-                                src="./assets/sliderImage/icons8-mongo-db-48.png"
-                                alt="MongoDB" />
-                            <img
-                                src="./assets/sliderImage/icons8-firebase-48.png"
-                                alt="Hyland Cloud" />
-                            <img
-                                src="./assets/sliderImage/icons8-git-48.png"
-                                alt="Git" />
-                            <img
-                                src="./assets/sliderImage/icons8-visual-studio-48.png"
-                                alt="Postman" />
-                            <img
-                                src="./assets/sliderImage/icons8-cmake-a-cross-platform-free-and-open-source-software-tool-48.png"
-                                alt="UML" />
-                            <img
-                                src="./assets/sliderImage/icons8-unity-48.png"
-                                alt="Visual Studio" />
-                            <img
-                                src="./assets/sliderImage/icons8-filezilla-48.png"
-                                alt="Firebase" />
-                            <img
-                                src="./assets/sliderImage/icons8-swift-48.png"
-                                alt="Ubuntu Linux" />
-                            <img
-                                src="./assets/sliderImage/icons8-c-sharp-logo-48.png"
-                                alt="Ubuntu Linux" />
-                            <img
-                                src="./assets/sliderImage/icons8-bash-48.png"
-                                alt="MySQL" />
-                            <img
-                                src="./assets/sliderImage/icons8-apache-a-free-and-open-source-cross-platform-web-server-software-48.png"
-                                alt="MongoDB" />
-                            <img
-                                src="./assets/sliderImage/icons8-html-48.png"
-                                alt="MongoDB" />
-                            <img
-                                src="./assets/sliderImage/icons8-css-48.png"
-                                alt="MongoDB" />
-                            <img
-                                src="./assets/sliderImage/icons8-js-48.png"
-                                alt="MongoDB" />
-                            <img
-                                src="./assets/sliderImage/icons8-node-js-48.png"
-                                alt="MongoDB" />
-                            <img
-                                src="./assets/sliderImage/icons8-angular-48.png"
-                                alt="MongoDB" />
-
-                            <!--Split-->
-
-                            <img
-                                src="./assets/sliderImage/icons8-java-48.png"
-                                alt="Hyland Cloud" />
-                            <img
-                                src="./assets/sliderImage/icons8-c-programming-48.png"
-                                alt="MongoDB" />
-                            <img
-                                src="./assets/sliderImage/icons8-c++-48.png"
-                                alt="Git" />
-                            <img
-                                src="./assets/sliderImage/icons8-ubuntu-48.png"
-                                alt="Postman" />
-                            <img
-                                src="./assets/sliderImage/icons8-arch-linux-48.png"
-                                alt="UML" />
-                            <img
-                                src="./assets/sliderImage/icons8-spring-boot-48.png"
-                                alt="Visual Studio" />
-                            <img
-                                src="./assets/sliderImage/icons8-kubernetes-48.png"
-                                alt="Firebase" />
-                            <img
-                                src="./assets/sliderImage/icons8-docker-48.png"
-                                alt="Ubuntu Linux" />
-                            <img
-                                src="./assets/sliderImage/icons8-mysql-48.png"
-                                alt="MySQL" />
-                            <img
-                                src="./assets/sliderImage/icons8-mongo-db-48.png"
-                                alt="MongoDB" />
-                            <img
-                                src="./assets/sliderImage/icons8-firebase-48.png"
-                                alt="Hyland Cloud" />
-                            <img
-                                src="./assets/sliderImage/icons8-git-48.png"
-                                alt="Git" />
-                            <img
-                                src="./assets/sliderImage/icons8-visual-studio-48.png"
-                                alt="Postman" />
-                            <img
-                                src="./assets/sliderImage/icons8-cmake-a-cross-platform-free-and-open-source-software-tool-48.png"
-                                alt="UML" />
-                            <img
-                                src="./assets/sliderImage/icons8-unity-48.png"
-                                alt="Visual Studio" />
-                            <img
-                                src="./assets/sliderImage/icons8-filezilla-48.png"
-                                alt="Firebase" />
-                            <img
-                                src="./assets/sliderImage/icons8-swift-48.png"
-                                alt="Ubuntu Linux" />
-                            <img
-                                src="./assets/sliderImage/icons8-c-sharp-logo-48.png"
-                                alt="Ubuntu Linux" />
-                            <img
-                                src="./assets/sliderImage/icons8-bash-48.png"
-                                alt="MySQL" />
-                            <img
-                                src="./assets/sliderImage/icons8-apache-a-free-and-open-source-cross-platform-web-server-software-48.png"
-                                alt="MongoDB" />
-                            <img
-                                src="./assets/sliderImage/icons8-html-48.png"
-                                alt="MongoDB" />
-                            <img
-                                src="./assets/sliderImage/icons8-css-48.png"
-                                alt="MongoDB" />
-                            <img
-                                src="./assets/sliderImage/icons8-js-48.png"
-                                alt="MongoDB" />
-                            <img
-                                src="./assets/sliderImage/icons8-node-js-48.png"
-                                alt="MongoDB" />
-                            <img
-                                src="./assets/sliderImage/icons8-angular-48.png"
-                                alt="MongoDB" />
-                        </div>
-                    </div>
-                </section>
-            </main>
-
-            <!-- Footer -->
-            <footer class="bg-gray-800 py-6 mt-12">
-                <div class="max-w-6xl mx-auto px-4 text-center text-gray-400">
-                    © 2024 Michael Kocovic. All rights reserved.
-                </div>
-            </footer>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-gray-900 p-6 space-y-4 absolute w-full z-50">
+            <a href="#about" class="block text-gray-300 hover:text-white">About</a>
+            <a href="#experience" class="block text-gray-300 hover:text-white">Experience</a>
+            <a href="#projects" class="block text-gray-300 hover:text-white">Projects</a>
+            <a href="#skills" class="block text-gray-300 hover:text-white">Skills</a>
+            <a href="#contact" class="block text-gray-300 hover:text-white">Contact</a>
         </div>
 
-        <script src="script.js"></script>
-    </body>
+        <!-- Hero Section -->
+        <section class="flex items-center justify-center flex-col min-h-screen" id="about">
+            <div class="container mx-auto px-6 py-12 text-center">
+                <h1 class="text-5xl md:text-6xl font-bold mb-4 animate__animated animate__fadeIn">Michael Kocovic</h1>
+                <h2 class="text-xl md:text-2xl mb-8 animate__animated animate__fadeIn animate__delay-1s">
+                    <span class="typing-text"></span>
+                </h2>
+                <p class="text-gray-400 mb-10 max-w-2xl mx-auto animate__animated animate__fadeIn animate__delay-2s">
+                    Computer Science Major at Fordham University, passionate about DevOps, 
+                    software development, and building innovative solutions.
+                </p>
+                <div class="flex justify-center space-x-4 mb-8 animate__animated animate__fadeIn animate__delay-3s">
+                    <a href="mailto:michaelk2ny@gmail.com" class="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-full flex items-center">
+                        <i class="fas fa-envelope mr-2"></i> Contact Me
+                    </a>
+                    <a href="https://github.com/mkocovic2" target="_blank" class="bg-gray-800 hover:bg-gray-700 text-white px-6 py-3 rounded-full flex items-center">
+                        <i class="fab fa-github mr-2"></i> GitHub
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Experience Section -->
+        <section id="experience" class="py-20">
+            <div class="container mx-auto px-6 max-w-4xl">
+                <h2 class="text-3xl font-medium mb-12 hidden-section">Experience</h2>
+                
+                <!-- DevOps Intern -->
+                <div class="mb-16 hidden-section">
+                    <div class="flex justify-between items-start mb-2">
+                        <h3 class="text-xl font-medium">DevOps Intern</h3>
+                        <span class="text-gray-400">May 2024 - Present</span>
+                    </div>
+                    <p class="text-gray-400 mb-4">Fordham University • Bronx, New York</p>
+                    <ul class="space-y-3 text-gray-300">
+                        <li class="flex items-start">
+                            <span class="text-white mr-2">•</span>
+                            <span>Designed and implemented web APIs using C# in the Hyland Cloud environment</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-white mr-2">•</span>
+                            <span>Digitized paper-based forms into automated OnBase workflows, cutting processing time from 3 days to under 4 hours</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-white mr-2">•</span>
+                            <span>Modularized C# scripts, reducing execution time by 70% and improving system call efficiency by 50%</span>
+                        </li>
+                    </ul>
+                </div>
+                
+                <!-- Code Quality Analyst -->
+                <div class="mb-16 hidden-section">
+                    <div class="flex justify-between items-start mb-2">
+                        <h3 class="text-xl font-medium">Code Quality Analyst</h3>
+                        <span class="text-gray-400">May 2024 - Present</span>
+                    </div>
+                    <p class="text-gray-400 mb-4">Data Annotation • Remote</p>
+                    <ul class="space-y-3 text-gray-300">
+                        <li class="flex items-start">
+                            <span class="text-white mr-2">•</span>
+                            <span>Tested and optimized 1,000+ lines of code in C++ and Java, enhancing application speed by 30%</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-white mr-2">•</span>
+                            <span>Provided in-depth feedback and documentation on code functionality, performance, and scalability</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-white mr-2">•</span>
+                            <span>Tested AI-generated code with basic script implementation, improving integration success rates by 65%</span>
+                        </li>
+                    </ul>
+                </div>
+                
+                <!-- Education -->
+                <div class="hidden-section">
+                    <div class="flex justify-between items-start mb-2">
+                        <h3 class="text-xl font-medium">Education</h3>
+                        <span class="text-gray-400">Expected May 2026</span>
+                    </div>
+                    <p class="text-gray-400 mb-4">Fordham University • Bronx, New York</p>
+                    <ul class="space-y-3 text-gray-300">
+                        <li class="flex items-start">
+                            <span class="text-white mr-2">•</span>
+                            <span>M.S in Computer Science (Expected May 2026)</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-white mr-2">•</span>
+                            <span>B.S in Computer Science, Minor in Cybersecurity (Expected May 2025)</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-white mr-2">•</span>
+                            <span>GPA: 3.7/4.0</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects Section - Fixed Version -->
+        <section id="projects" class="py-20 bg-black">
+            <div class="container mx-auto px-6 max-w-4xl">
+                <h2 class="text-3xl font-medium mb-12 hidden-section">Projects</h2>
+                
+                <div class="space-y-0">
+                    <!-- Glimpse Project -->
+                    <div class="project-item hidden-section">
+                        <div class="flex justify-between items-start">
+                            <h3 class="text-xl font-medium">Glimpse</h3>
+                            <span class="text-gray-400 text-sm">Apr 2025</span>
+                        </div>
+                        <p class="text-gray-400 mt-2 mb-4">
+                            A minimalist system monitoring tool that gives you real-time insights into CPU, RAM, GPU, and processes — both locally and from remote servers.
+                        </p>
+                        <div class="text-sm text-gray-500">
+                            <span>Java</span>
+                        </div>
+                    </div>
+                    
+                    <!-- mTask Project -->
+                    <div class="project-item hidden-section">
+                        <div class="flex justify-between items-start">
+                            <h3 class="text-xl font-medium">mTask</h3>
+                            <span class="text-gray-400 text-sm">Apr 2025</span>
+                        </div>
+                        <p class="text-gray-400 mt-2 mb-4">
+                            A CLI based project manager, leveraging simple and lightweight design for task management and productivity.
+                        </p>
+                        <div class="text-sm text-gray-500">
+                            <span>C++</span>
+                        </div>
+                    </div>
+                    
+                    <!-- System Monitoring API -->
+                    <div class="project-item hidden-section">
+                        <div class="flex justify-between items-start">
+                            <h3 class="text-xl font-medium">System Monitoring API</h3>
+                            <span class="text-gray-400 text-sm">Oct 2024</span>
+                        </div>
+                        <p class="text-gray-400 mt-2 mb-4">
+                            A secure Flask-based API providing real-time system metrics including CPU, memory, disk, and network statistics remotely.
+                        </p>
+                        <div class="text-sm text-gray-500">
+                            <span>Python</span> • <span>Flask</span>
+                        </div>
+                    </div>
+                    
+                    <!-- Homelab Infrastructure -->
+                    <div class="project-item hidden-section">
+                        <div class="flex justify-between items-start">
+                            <h3 class="text-xl font-medium">Homelab Infrastructure</h3>
+                            <span class="text-gray-400 text-sm">Ongoing</span>
+                        </div>
+                        <p class="text-gray-400 mt-2 mb-4">
+                            Architected and maintained a Linux-based media server supporting multiple concurrent users and database management systems.
+                        </p>
+                        <div class="text-sm text-gray-500">
+                            <span>Linux</span> • <span>Ubuntu</span> • <span>MySQL</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="mt-12 hidden-section">
+                    <a href="https://github.com/mkocovic2" target="_blank" class="inline-flex items-center text-white border-b border-white pb-1">
+                        View all projects on GitHub <i class="fas fa-arrow-right ml-2 text-sm"></i>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Skills Section -->
+        <section id="skills" class="py-20">
+            <div class="container mx-auto px-6 max-w-4xl">
+                <h2 class="text-3xl font-medium mb-12 hidden-section">Skills</h2>
+                
+                <div class="mb-10 hidden-section">
+                    <h3 class="text-lg font-medium mb-4">Programming Languages</h3>
+                    <div>
+                        <span class="skill-item">C++</span>
+                        <span class="skill-item">C#</span>
+                        <span class="skill-item">Java</span>
+                        <span class="skill-item">Python</span>
+                        <span class="skill-item">JavaScript</span>
+                        <span class="skill-item">HTML/CSS</span>
+                    </div>
+                </div>
+                
+                <div class="mb-10 hidden-section">
+                    <h3 class="text-lg font-medium mb-4">Tools & Technologies</h3>
+                    <div>
+                        <span class="skill-item">Hyland Cloud</span>
+                        <span class="skill-item">Git</span>
+                        <span class="skill-item">Postman</span>
+                        <span class="skill-item">UML</span>
+                        <span class="skill-item">Visual Studio</span>
+                        <span class="skill-item">Firebase</span>
+                    </div>
+                </div>
+                
+                <div class="hidden-section">
+                    <h3 class="text-lg font-medium mb-4">Server Management</h3>
+                    <div>
+                        <span class="skill-item">Ubuntu Linux</span>
+                        <span class="skill-item">MySQL</span>
+                        <span class="skill-item">MongoDB</span>
+                        <span class="skill-item">APIs</span>
+                        <span class="skill-item">Flask</span>
+                        <span class="skill-item">RESTful Services</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="py-20 bg-black">
+            <div class="container mx-auto px-6 max-w-4xl">
+                <h2 class="text-3xl font-medium mb-12 hidden-section">Contact</h2>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 hidden-section">
+                    <div>
+                        <div class="mb-6">
+                            <h3 class="text-lg font-medium mb-2">Email</h3>
+                            <a href="mailto:michaelk2ny@gmail.com" class="text-gray-400 hover:text-white">michaelk2ny@gmail.com</a>
+                        </div>
+                        
+                        <div class="mb-6">
+                            <h3 class="text-lg font-medium mb-2">Phone</h3>
+                            <a href="tel:9145255707" class="text-gray-400 hover:text-white">(914)-525-5707</a>
+                        </div>
+                    </div>
+                    
+                    <div>
+                        <div class="mb-6">
+                            <h3 class="text-lg font-medium mb-2">Location</h3>
+                            <p class="text-gray-400">New York</p>
+                        </div>
+                        
+                        <div class="mb-6">
+                            <h3 class="text-lg font-medium mb-2">GitHub</h3>
+                            <a href="https://github.com/mkocovic2" target="_blank" class="text-gray-400 hover:text-white">github.com/mkocovic2</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="py-12 border-t border-gray-800">
+            <div class="container mx-auto px-6 text-center">
+                <p class="text-gray-400">© 2025 Michael Kocovic. All rights reserved.</p>
+            </div>
+        </footer>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/particles.js/2.0.0/particles.min.js"></script>
+    <script>
+        // Mobile menu toggle
+        document.getElementById('menu-toggle').addEventListener('click', function() {
+            const mobileMenu = document.getElementById('mobile-menu');
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Particles.js configuration
+        particlesJS('particles-js', {
+            "particles": {
+                "number": {
+                    "value": 80,
+                    "density": {
+                        "enable": true,
+                        "value_area": 800
+                    }
+                },
+                "color": {
+                    "value": "#3B82F6"
+                },
+                "shape": {
+                    "type": "circle",
+                    "stroke": {
+                        "width": 0,
+                        "color": "#000000"
+                    },
+                },
+                "opacity": {
+                    "value": 0.5,
+                    "random": false,
+                    "anim": {
+                        "enable": false,
+                        "speed": 1,
+                        "opacity_min": 0.1,
+                        "sync": false
+                    }
+                },
+                "size": {
+                    "value": 3,
+                    "random": true,
+                    "anim": {
+                        "enable": false,
+                        "speed": 40,
+                        "size_min": 0.1,
+                        "sync": false
+                    }
+                },
+                "line_linked": {
+                    "enable": true,
+                    "distance": 150,
+                    "color": "#3B82F6",
+                    "opacity": 0.4,
+                    "width": 1
+                },
+                "move": {
+                    "enable": true,
+                    "speed": 2,
+                    "direction": "none",
+                    "random": false,
+                    "straight": false,
+                    "out_mode": "out",
+                    "bounce": false,
+                    "attract": {
+                        "enable": false,
+                        "rotateX": 600,
+                        "rotateY": 1200
+                    }
+                }
+            },
+            "interactivity": {
+                "detect_on": "canvas",
+                "events": {
+                    "onhover": {
+                        "enable": true,
+                        "mode": "grab"
+                    },
+                    "onclick": {
+                        "enable": true,
+                        "mode": "push"
+                    },
+                    "resize": true
+                },
+                "modes": {
+                    "grab": {
+                        "distance": 140,
+                        "line_linked": {
+                            "opacity": 1
+                        }
+                    },
+                    "bubble": {
+                        "distance": 400,
+                        "size": 40,
+                        "duration": 2,
+                        "opacity": 8,
+                        "speed": 3
+                    },
+                    "repulse": {
+                        "distance": 200,
+                        "duration": 0.4
+                    },
+                    "push": {
+                        "particles_nb": 4
+                    },
+                    "remove": {
+                        "particles_nb": 2
+                    }
+                }
+            },
+            "retina_detect": true
+        });
+
+        // Intersection Observer for animations
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.hidden-section').forEach(section => {
+            observer.observe(section);
+        });
+
+        // Typed.js for dynamic text
+        document.addEventListener('DOMContentLoaded', function() {
+            new Typed('.typing-text', {
+                strings: [
+                    'DevOps Engineer',
+                    'Software Developer',
+                    'System Administrator',
+                    'Computer Science Student',
+                    'Problem Solver'
+                ],
+                typeSpeed: 70,
+                backSpeed: 50,
+                backDelay: 1500,
+                startDelay: 1000,
+                loop: true
+            });
+        });
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                    
+                    // Close mobile menu if open
+                    const mobileMenu = document.getElementById('mobile-menu');
+                    if (!mobileMenu.classList.contains('hidden')) {
+                        mobileMenu.classList.add('hidden');
+                    }
+                }
+            });
+        });
+
+        // GSAP animations for enhanced visual effects
+        document.addEventListener('DOMContentLoaded', function() {
+            // Animate project items with staggered effect
+            gsap.from('.project-item', {
+                duration: 0.8,
+                opacity: 0,
+                y: 20,
+                stagger: 0.15,
+                ease: "power3.out",
+                scrollTrigger: {
+                    trigger: '#projects',
+                    start: 'top 80%',
+                    toggleActions: 'play none none none'
+                }
+            });
+        });
+
+        // Dynamic year for copyright
+        document.addEventListener('DOMContentLoaded', function() {
+            const yearElement = document.querySelector('footer p');
+            if (yearElement) {
+                const currentYear = new Date().getFullYear();
+                yearElement.textContent = `© ${currentYear} Michael Kocovic. All rights reserved.`;
+            }
+        });
+    </script>
+</body>
 </html>
