@@ -1,561 +1,543 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Michael Kocovic | Portfolio</title>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" rel="stylesheet">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/gsap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/typed.js/2.0.12/typed.min.js"></script>
-    <style>
-        body {
-            background-color: #000;
-            color: #f1f1f1;
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-            overflow-x: hidden;
-        }
-        .nav-link {
-            position: relative;
-        }
-        .nav-link::after {
-            content: '';
-            position: absolute;
-            width: 0;
-            height: 1px;
-            bottom: -2px;
-            left: 0;
-            background-color: white;
-            transition: width 0.3s ease;
-        }
-        .nav-link:hover::after {
-            width: 100%;
-        }
-        .hidden-section {
-            opacity: 0;
-            transform: translateY(20px);
-            transition: opacity 0.8s, transform 0.8s;
-        }
-        .visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-        #particles-js {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            z-index: 1;
-        }
-        .content {
-            position: relative;
-            z-index: 10;
-        }
-        .typing-text {
-            color: #3B82F6;
-            font-weight: bold;
-        }
-        .project-item {
-            position: relative;
-            padding: 2rem 0;
-            border-bottom: 1px solid rgba(255,255,255,0.1);
-            transition: all 0.3s ease;
-        }
-        .project-item:hover {
-            background: rgba(255,255,255,0.02);
-        }
-        .skill-item {
-            display: inline-block;
-            margin-right: 0.8rem;
-            margin-bottom: 0.8rem;
-            position: relative;
-        }
-        .skill-item:after {
-            content: '•';
-            position: absolute;
-            right: -0.6rem;
-            color: rgba(255,255,255,0.3);
-        }
-        .skill-item:last-child:after {
-            display: none;
-        }
-    </style>
-</head>
-<body class="antialiased">
-    <div id="particles-js"></div>
-    
-    <div class="content">
-        <!-- Navigation -->
-        <nav class="container mx-auto px-6 py-6 flex justify-between items-center">
-            <a href="#" class="text-xl font-medium">MK</a>
-            <ul class="hidden md:flex space-x-8">
-                <li><a href="#about" class="nav-link text-gray-400 hover:text-white">About</a></li>
-                <li><a href="#experience" class="nav-link text-gray-400 hover:text-white">Experience</a></li>
-                <li><a href="#projects" class="nav-link text-gray-400 hover:text-white">Projects</a></li>
-                <li><a href="#skills" class="nav-link text-gray-400 hover:text-white">Skills</a></li>
-                <li><a href="#contact" class="nav-link text-gray-400 hover:text-white">Contact</a></li>
-            </ul>
-            <div class="md:hidden">
-                <button id="menu-toggle" class="text-white focus:outline-none">
-                    <i class="fas fa-bars"></i>
-                </button>
-            </div>
-        </nav>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Michael Kocovic | Portfolio</title>
+        <link
+            href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css"
+            rel="stylesheet" />
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" />
+        <link
+            href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+            rel="stylesheet" />
+        <link href="styles.css" rel="stylesheet" />
+    </head>
+    <body class="antialiased">
+        <!-- Particles Background -->
+        <div id="particles-js"></div>
 
-        <!-- Mobile Menu -->
-        <div id="mobile-menu" class="hidden md:hidden bg-gray-900 p-6 space-y-4 absolute w-full z-50">
-            <a href="#about" class="block text-gray-300 hover:text-white">About</a>
-            <a href="#experience" class="block text-gray-300 hover:text-white">Experience</a>
-            <a href="#projects" class="block text-gray-300 hover:text-white">Projects</a>
-            <a href="#skills" class="block text-gray-300 hover:text-white">Skills</a>
-            <a href="#contact" class="block text-gray-300 hover:text-white">Contact</a>
+        <div class="content">
+            <!-- Navigation -->
+            <nav
+                class="container mx-auto px-6 py-6 flex justify-between items-center">
+                <a href="#" class="text-xl font-medium">MK</a>
+                <ul class="hidden md:flex space-x-8">
+                    <li>
+                        <a
+                            href="#about"
+                            class="nav-link text-gray-400 hover:text-white"
+                            >About</a
+                        >
+                    </li>
+                    <li>
+                        <a
+                            href="#experience"
+                            class="nav-link text-gray-400 hover:text-white"
+                            >Experience</a
+                        >
+                    </li>
+                    <li>
+                        <a
+                            href="#projects"
+                            class="nav-link text-gray-400 hover:text-white"
+                            >Projects</a
+                        >
+                    </li>
+                    <li>
+                        <a
+                            href="#skills"
+                            class="nav-link text-gray-400 hover:text-white"
+                            >Skills</a
+                        >
+                    </li>
+                    <li>
+                        <a
+                            href="#contact"
+                            class="nav-link text-gray-400 hover:text-white"
+                            >Contact</a
+                        >
+                    </li>
+                </ul>
+                <div class="md:hidden">
+                    <button
+                        id="menu-toggle"
+                        class="text-white focus:outline-none">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                </div>
+            </nav>
+
+            <!-- Mobile Menu -->
+            <div
+                id="mobile-menu"
+                class="hidden bg-gray-900 p-6 space-y-4 absolute w-full z-50">
+                <a href="#about" class="block text-gray-300 hover:text-white"
+                    >About</a
+                >
+                <a
+                    href="#experience"
+                    class="block text-gray-300 hover:text-white"
+                    >Experience</a
+                >
+                <a href="#projects" class="block text-gray-300 hover:text-white"
+                    >Projects</a
+                >
+                <a href="#skills" class="block text-gray-300 hover:text-white"
+                    >Skills</a
+                >
+                <a href="#contact" class="block text-gray-300 hover:text-white"
+                    >Contact</a
+                >
+            </div>
+
+            <!-- Hero Section -->
+            <section
+                class="flex items-center justify-center flex-col min-h-screen"
+                id="about">
+                <div class="container mx-auto px-6 py-12 text-center">
+                    <h1
+                        class="text-5xl md:text-6xl font-bold mb-4 animate__animated animate__fadeIn">
+                        Michael Kocovic
+                    </h1>
+                    <h2
+                        class="text-xl md:text-2xl mb-8 animate__animated animate__fadeIn animate__delay-1s">
+                        <span class="typing-text"></span>
+                    </h2>
+                    <p
+                        class="text-gray-400 mb-10 max-w-2xl mx-auto animate__animated animate__fadeIn animate__delay-2s">
+                        Computer Science Major at Fordham University, passionate
+                        about DevOps, software development, and building
+                        innovative solutions.
+                    </p>
+                    <div
+                        class="flex justify-center space-x-4 mb-8 animate__animated animate__fadeIn animate__delay-3s">
+                        <a
+                            href="mailto:michaelk2ny@gmail.com"
+                            class="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-full flex items-center">
+                            <i class="fas fa-envelope mr-2"></i> Contact Me
+                        </a>
+                        <a
+                            href="https://github.com/mkocovic2"
+                            target="_blank"
+                            class="bg-gray-800 hover:bg-gray-700 text-white px-6 py-3 rounded-full flex items-center">
+                            <i class="fab fa-github mr-2"></i> GitHub
+                        </a>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Experience Section -->
+            <section id="experience" class="py-20 bg-black">
+                <div class="container mx-auto px-6 max-w-4xl">
+                    <h2 class="text-3xl font-medium mb-12 hidden-section">
+                        Experience
+                    </h2>
+
+                    <!-- DevOps Intern -->
+                    <div class="mb-16 hidden-section">
+                        <div class="flex justify-between items-start mb-2">
+                            <h3 class="text-xl font-medium">DevOps Intern</h3>
+                            <span class="text-gray-400"
+                                >May 2024 - Present</span
+                            >
+                        </div>
+                        <p class="text-gray-400 mb-4">
+                            Fordham University • Bronx, New York
+                        </p>
+                        <ul class="space-y-3 text-gray-300">
+                            <li class="flex items-start">
+                                <span class="text-white mr-2">•</span>
+                                <span
+                                    >Designed and implemented web APIs using C#
+                                    in the Hyland Cloud environment</span
+                                >
+                            </li>
+                            <li class="flex items-start">
+                                <span class="text-white mr-2">•</span>
+                                <span
+                                    >Digitized paper-based forms into automated
+                                    OnBase workflows, cutting processing time
+                                    from 3 days to under 4 hours</span
+                                >
+                            </li>
+                            <li class="flex items-start">
+                                <span class="text-white mr-2">•</span>
+                                <span
+                                    >Modularized C# scripts, reducing execution
+                                    time by 70% and improving system call
+                                    efficiency by 50%</span
+                                >
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- Code Quality Analyst -->
+                    <div class="mb-16 hidden-section">
+                        <div class="flex justify-between items-start mb-2">
+                            <h3 class="text-xl font-medium">
+                                Code Quality Analyst
+                            </h3>
+                            <span class="text-gray-400"
+                                >May 2024 - Present</span
+                            >
+                        </div>
+                        <p class="text-gray-400 mb-4">
+                            Data Annotation • Remote
+                        </p>
+                        <ul class="space-y-3 text-gray-300">
+                            <li class="flex items-start">
+                                <span class="text-white mr-2">•</span>
+                                <span
+                                    >Tested and optimized 1,000+ lines of code
+                                    in C++ and Java, enhancing application speed
+                                    by 30%</span
+                                >
+                            </li>
+                            <li class="flex items-start">
+                                <span class="text-white mr-2">•</span>
+                                <span
+                                    >Provided in-depth feedback and
+                                    documentation on code functionality,
+                                    performance, and scalability</span
+                                >
+                            </li>
+                            <li class="flex items-start">
+                                <span class="text-white mr-2">•</span>
+                                <span
+                                    >Tested AI-generated code with basic script
+                                    implementation, improving integration
+                                    success rates by 65%</span
+                                >
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <section id="education" class="py-20">
+                <div class="container mx-auto px-6 max-w-4xl">
+                    <h2
+                        class="text-3xl font-medium mb-12 text-white hidden-section">
+                        Education
+                    </h2>
+
+                    <!-- Fordham University -->
+                    <div class="hidden-section mb-16">
+                        <div class="flex justify-between items-start mb-2">
+                            <h3 class="text-xl font-medium text-white">
+                                Fordham University
+                            </h3>
+                            <span class="text-gray-400">2021 - 2026</span>
+                        </div>
+                        <p class="text-gray-400 mb-4">Bronx, New York</p>
+                        <ul class="space-y-3 text-gray-300">
+                            <li class="flex items-start">
+                                <span class="text-white mr-2">•</span>
+                                <span
+                                    >M.S in Computer Science (Expected May
+                                    2026)</span
+                                >
+                            </li>
+                            <li class="flex items-start">
+                                <span class="text-white mr-2">•</span>
+                                <span
+                                    >B.S in Computer Science, Minor in
+                                    Cybersecurity (Expected May 2025)</span
+                                >
+                            </li>
+                            <li class="flex items-start">
+                                <span class="text-white mr-2">•</span>
+                                <span>GPA: 3.7/4.0 | Dean's List Honors</span>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="text-white mr-2">•</span>
+                                <span
+                                    >Relevant Coursework: Algorithms, Data
+                                    Structures, Cloud Computing, Database
+                                    Systems, Cybersecurity Fundamentals</span
+                                >
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- Additional Education (if any) -->
+                    <div class="hidden-section">
+                        <div class="flex justify-between items-start mb-2">
+                            <h3 class="text-xl font-medium text-white">
+                                Additional Certifications
+                            </h3>
+                        </div>
+                        <ul class="space-y-3 text-gray-300">
+                            <li class="flex items-start">
+                                <span class="text-white mr-2">•</span>
+                                <span
+                                    >AWS Certified Cloud Practitioner (Expected
+                                    2024)</span
+                                >
+                            </li>
+                            <li class="flex items-start">
+                                <span class="text-white mr-2">•</span>
+                                <span>CompTIA Security+ (Expected 2025)</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Projects Section -->
+            <section id="projects" class="py-20 bg-black">
+                <div class="container mx-auto px-6 max-w-4xl">
+                    <h2
+                        class="text-3xl font-medium mb-12 text-white text-left hidden-section">
+                        Projects
+                    </h2>
+
+                    <div class="space-y-6">
+                        <div class="project-item hidden-section">
+                            <div class="flex justify-between items-start">
+                                <h3
+                                    class="text-xl font-medium text-white text-left">
+                                    Glimpse
+                                </h3>
+                                <span class="text-gray-400 text-sm"
+                                    >Apr 2025</span
+                                >
+                            </div>
+                            <p class="text-gray-300 mt-2 mb-4 text-left">
+                                A minimalist system monitoring tool that gives
+                                you real-time insights into CPU, RAM, GPU, and
+                                processes — both locally and from remote
+                                servers.
+                            </p>
+                            <div class="text-sm text-blue-500 text-left">
+                                <span>Java</span>
+                            </div>
+                        </div>
+
+                        <div class="project-item hidden-section">
+                            <div class="flex justify-between items-start">
+                                <h3
+                                    class="text-xl font-medium text-white text-left">
+                                    mTask
+                                </h3>
+                                <span class="text-gray-400 text-sm"
+                                    >Apr 2025</span
+                                >
+                            </div>
+                            <p class="text-gray-300 mt-2 mb-4 text-left">
+                                A CLI based project manager, leveraging simple
+                                and lightweight design for task management and
+                                productivity.
+                            </p>
+                            <div class="text-sm text-blue-500 text-left">
+                                <span>C++</span>
+                            </div>
+                        </div>
+
+                        <div class="project-item hidden-section">
+                            <div class="flex justify-between items-start">
+                                <h3
+                                    class="text-xl font-medium text-white text-left">
+                                    System Monitoring API
+                                </h3>
+                                <span class="text-gray-400 text-sm"
+                                    >Oct 2024</span
+                                >
+                            </div>
+                            <p class="text-gray-300 mt-2 mb-4 text-left">
+                                A secure Flask-based API providing real-time
+                                system metrics including CPU, memory, disk, and
+                                network statistics remotely.
+                            </p>
+                            <div class="text-sm text-blue-500 text-left">
+                                <span>Python</span> • <span>Flask</span>
+                            </div>
+                        </div>
+
+                        <div class="project-item hidden-section">
+                            <div class="flex justify-between items-start">
+                                <h3
+                                    class="text-xl font-medium text-white text-left">
+                                    Homelab Infrastructure
+                                </h3>
+                                <span class="text-gray-400 text-sm"
+                                    >Ongoing</span
+                                >
+                            </div>
+                            <p class="text-gray-300 mt-2 mb-4 text-left">
+                                Architected and maintained a Linux-based media
+                                server supporting multiple concurrent users and
+                                database management systems.
+                            </p>
+                            <div class="text-sm text-blue-500 text-left">
+                                <span>Linux</span> • <span>Ubuntu</span> •
+                                <span>MySQL</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="mt-12 hidden-section">
+                        <a
+                            href="https://github.com/mkocovic2"
+                            target="_blank"
+                            class="inline-flex items-center text-white border-b border-white pb-1 hover:text-blue-500 hover:border-blue-500 transition duration-300">
+                            View all projects on GitHub
+                            <i class="fas fa-arrow-right ml-2 text-sm"></i>
+                        </a>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Skills Section -->
+            <section id="skills" class="py-20 bg-black">
+                <div class="container mx-auto px-6 max-w-4xl">
+                    <h2 class="text-3xl font-medium mb-12 hidden-section">
+                        Skills
+                    </h2>
+
+                    <div class="mb-10 hidden-section">
+                        <h3 class="text-lg font-medium mb-4">
+                            Programming Languages
+                        </h3>
+                        <div>
+                            <span class="skill-item" data-skill="C++">C++</span>
+                            <span class="skill-item" data-skill="C#">C#</span>
+                            <span class="skill-item" data-skill="Java"
+                                >Java</span
+                            >
+                            <span class="skill-item" data-skill="Python"
+                                >Python</span
+                            >
+                            <span class="skill-item" data-skill="JavaScript"
+                                >JavaScript</span
+                            >
+                            <span class="skill-item" data-skill="HTML"
+                                >HTML</span
+                            >
+                            <span class="skill-item" data-skill="CSS">CSS</span>
+                        </div>
+                    </div>
+
+                    <div class="mb-10 hidden-section">
+                        <h3 class="text-lg font-medium mb-4">
+                            Tools & Technologies
+                        </h3>
+                        <div>
+                            <span class="skill-item" data-skill="Hyland Cloud"
+                                >Hyland Cloud</span
+                            >
+                            <span class="skill-item" data-skill="Git">Git</span>
+                            <span class="skill-item" data-skill="Postman"
+                                >Postman</span
+                            >
+                            <span class="skill-item" data-skill="UML">UML</span>
+                            <span class="skill-item" data-skill="Visual Studio"
+                                >Visual Studio</span
+                            >
+                            <span class="skill-item" data-skill="Firebase"
+                                >Firebase</span
+                            >
+                        </div>
+                    </div>
+
+                    <div class="hidden-section">
+                        <h3 class="text-lg font-medium mb-4">
+                            Server Management
+                        </h3>
+                        <div>
+                            <span class="skill-item" data-skill="Ubuntu Linux"
+                                >Ubuntu Linux</span
+                            >
+                            <span class="skill-item" data-skill="MySQL"
+                                >MySQL</span
+                            >
+                            <span class="skill-item" data-skill="MongoDB"
+                                >MongoDB</span
+                            >
+                            <span class="skill-item" data-skill="APIs"
+                                >APIs</span
+                            >
+                            <span class="skill-item" data-skill="Flask"
+                                >Flask</span
+                            >
+                            <span
+                                class="skill-item"
+                                data-skill="RESTful Services"
+                                >RESTful Services</span
+                            >
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Contact Section -->
+            <section id="contact" class="py-20 bg-black">
+                <div class="container mx-auto px-6 max-w-4xl">
+                    <h2 class="text-3xl font-medium mb-12 hidden-section">
+                        Contact
+                    </h2>
+
+                    <div
+                        class="grid grid-cols-1 md:grid-cols-2 gap-8 hidden-section">
+                        <div>
+                            <div class="mb-6">
+                                <h3 class="text-lg font-medium mb-2">Email</h3>
+                                <a
+                                    href="mailto:michaelk2ny@gmail.com"
+                                    class="text-gray-400 hover:text-white">
+                                    michaelk2ny@gmail.com
+                                </a>
+                            </div>
+
+                            <div class="mb-6">
+                                <h3 class="text-lg font-medium mb-2">Phone</h3>
+                                <a
+                                    href="tel:9145255707"
+                                    class="text-gray-400 hover:text-white">
+                                    (914)-525-5707
+                                </a>
+                            </div>
+                        </div>
+
+                        <div>
+                            <div class="mb-6">
+                                <h3 class="text-lg font-medium mb-2">
+                                    Location
+                                </h3>
+                                <p class="text-gray-400">New York</p>
+                            </div>
+
+                            <div class="mb-6">
+                                <h3 class="text-lg font-medium mb-2">GitHub</h3>
+                                <a
+                                    href="https://github.com/mkocovic2"
+                                    target="_blank"
+                                    class="text-gray-400 hover:text-white">
+                                    github.com/mkocovic2
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Footer -->
+            <footer class="py-12 border-t border-gray-800">
+                <div class="container mx-auto px-6 text-center">
+                    <p class="text-gray-400">
+                        © 2025 Michael Kocovic. All rights reserved.
+                    </p>
+                </div>
+            </footer>
         </div>
 
-        <!-- Hero Section -->
-        <section class="flex items-center justify-center flex-col min-h-screen" id="about">
-            <div class="container mx-auto px-6 py-12 text-center">
-                <h1 class="text-5xl md:text-6xl font-bold mb-4 animate__animated animate__fadeIn">Michael Kocovic</h1>
-                <h2 class="text-xl md:text-2xl mb-8 animate__animated animate__fadeIn animate__delay-1s">
-                    <span class="typing-text"></span>
-                </h2>
-                <p class="text-gray-400 mb-10 max-w-2xl mx-auto animate__animated animate__fadeIn animate__delay-2s">
-                    Computer Science Major at Fordham University, passionate about DevOps, 
-                    software development, and building innovative solutions.
-                </p>
-                <div class="flex justify-center space-x-4 mb-8 animate__animated animate__fadeIn animate__delay-3s">
-                    <a href="mailto:michaelk2ny@gmail.com" class="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-full flex items-center">
-                        <i class="fas fa-envelope mr-2"></i> Contact Me
-                    </a>
-                    <a href="https://github.com/mkocovic2" target="_blank" class="bg-gray-800 hover:bg-gray-700 text-white px-6 py-3 rounded-full flex items-center">
-                        <i class="fab fa-github mr-2"></i> GitHub
-                    </a>
-                </div>
-            </div>
-        </section>
-
-        <!-- Experience Section -->
-        <section id="experience" class="py-20">
-            <div class="container mx-auto px-6 max-w-4xl">
-                <h2 class="text-3xl font-medium mb-12 hidden-section">Experience</h2>
-                
-                <!-- DevOps Intern -->
-                <div class="mb-16 hidden-section">
-                    <div class="flex justify-between items-start mb-2">
-                        <h3 class="text-xl font-medium">DevOps Intern</h3>
-                        <span class="text-gray-400">May 2024 - Present</span>
-                    </div>
-                    <p class="text-gray-400 mb-4">Fordham University • Bronx, New York</p>
-                    <ul class="space-y-3 text-gray-300">
-                        <li class="flex items-start">
-                            <span class="text-white mr-2">•</span>
-                            <span>Designed and implemented web APIs using C# in the Hyland Cloud environment</span>
-                        </li>
-                        <li class="flex items-start">
-                            <span class="text-white mr-2">•</span>
-                            <span>Digitized paper-based forms into automated OnBase workflows, cutting processing time from 3 days to under 4 hours</span>
-                        </li>
-                        <li class="flex items-start">
-                            <span class="text-white mr-2">•</span>
-                            <span>Modularized C# scripts, reducing execution time by 70% and improving system call efficiency by 50%</span>
-                        </li>
-                    </ul>
-                </div>
-                
-                <!-- Code Quality Analyst -->
-                <div class="mb-16 hidden-section">
-                    <div class="flex justify-between items-start mb-2">
-                        <h3 class="text-xl font-medium">Code Quality Analyst</h3>
-                        <span class="text-gray-400">May 2024 - Present</span>
-                    </div>
-                    <p class="text-gray-400 mb-4">Data Annotation • Remote</p>
-                    <ul class="space-y-3 text-gray-300">
-                        <li class="flex items-start">
-                            <span class="text-white mr-2">•</span>
-                            <span>Tested and optimized 1,000+ lines of code in C++ and Java, enhancing application speed by 30%</span>
-                        </li>
-                        <li class="flex items-start">
-                            <span class="text-white mr-2">•</span>
-                            <span>Provided in-depth feedback and documentation on code functionality, performance, and scalability</span>
-                        </li>
-                        <li class="flex items-start">
-                            <span class="text-white mr-2">•</span>
-                            <span>Tested AI-generated code with basic script implementation, improving integration success rates by 65%</span>
-                        </li>
-                    </ul>
-                </div>
-                
-                <!-- Education -->
-                <div class="hidden-section">
-                    <div class="flex justify-between items-start mb-2">
-                        <h3 class="text-xl font-medium">Education</h3>
-                        <span class="text-gray-400">Expected May 2026</span>
-                    </div>
-                    <p class="text-gray-400 mb-4">Fordham University • Bronx, New York</p>
-                    <ul class="space-y-3 text-gray-300">
-                        <li class="flex items-start">
-                            <span class="text-white mr-2">•</span>
-                            <span>M.S in Computer Science (Expected May 2026)</span>
-                        </li>
-                        <li class="flex items-start">
-                            <span class="text-white mr-2">•</span>
-                            <span>B.S in Computer Science, Minor in Cybersecurity (Expected May 2025)</span>
-                        </li>
-                        <li class="flex items-start">
-                            <span class="text-white mr-2">•</span>
-                            <span>GPA: 3.7/4.0</span>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </section>
-
-        <!-- Projects Section - Fixed Version -->
-        <section id="projects" class="py-20 bg-black">
-            <div class="container mx-auto px-6 max-w-4xl">
-                <h2 class="text-3xl font-medium mb-12 hidden-section">Projects</h2>
-                
-                <div class="space-y-0">
-                    <!-- Glimpse Project -->
-                    <div class="project-item hidden-section">
-                        <div class="flex justify-between items-start">
-                            <h3 class="text-xl font-medium">Glimpse</h3>
-                            <span class="text-gray-400 text-sm">Apr 2025</span>
-                        </div>
-                        <p class="text-gray-400 mt-2 mb-4">
-                            A minimalist system monitoring tool that gives you real-time insights into CPU, RAM, GPU, and processes — both locally and from remote servers.
-                        </p>
-                        <div class="text-sm text-gray-500">
-                            <span>Java</span>
-                        </div>
-                    </div>
-                    
-                    <!-- mTask Project -->
-                    <div class="project-item hidden-section">
-                        <div class="flex justify-between items-start">
-                            <h3 class="text-xl font-medium">mTask</h3>
-                            <span class="text-gray-400 text-sm">Apr 2025</span>
-                        </div>
-                        <p class="text-gray-400 mt-2 mb-4">
-                            A CLI based project manager, leveraging simple and lightweight design for task management and productivity.
-                        </p>
-                        <div class="text-sm text-gray-500">
-                            <span>C++</span>
-                        </div>
-                    </div>
-                    
-                    <!-- System Monitoring API -->
-                    <div class="project-item hidden-section">
-                        <div class="flex justify-between items-start">
-                            <h3 class="text-xl font-medium">System Monitoring API</h3>
-                            <span class="text-gray-400 text-sm">Oct 2024</span>
-                        </div>
-                        <p class="text-gray-400 mt-2 mb-4">
-                            A secure Flask-based API providing real-time system metrics including CPU, memory, disk, and network statistics remotely.
-                        </p>
-                        <div class="text-sm text-gray-500">
-                            <span>Python</span> • <span>Flask</span>
-                        </div>
-                    </div>
-                    
-                    <!-- Homelab Infrastructure -->
-                    <div class="project-item hidden-section">
-                        <div class="flex justify-between items-start">
-                            <h3 class="text-xl font-medium">Homelab Infrastructure</h3>
-                            <span class="text-gray-400 text-sm">Ongoing</span>
-                        </div>
-                        <p class="text-gray-400 mt-2 mb-4">
-                            Architected and maintained a Linux-based media server supporting multiple concurrent users and database management systems.
-                        </p>
-                        <div class="text-sm text-gray-500">
-                            <span>Linux</span> • <span>Ubuntu</span> • <span>MySQL</span>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="mt-12 hidden-section">
-                    <a href="https://github.com/mkocovic2" target="_blank" class="inline-flex items-center text-white border-b border-white pb-1">
-                        View all projects on GitHub <i class="fas fa-arrow-right ml-2 text-sm"></i>
-                    </a>
-                </div>
-            </div>
-        </section>
-
-        <!-- Skills Section -->
-        <section id="skills" class="py-20">
-            <div class="container mx-auto px-6 max-w-4xl">
-                <h2 class="text-3xl font-medium mb-12 hidden-section">Skills</h2>
-                
-                <div class="mb-10 hidden-section">
-                    <h3 class="text-lg font-medium mb-4">Programming Languages</h3>
-                    <div>
-                        <span class="skill-item">C++</span>
-                        <span class="skill-item">C#</span>
-                        <span class="skill-item">Java</span>
-                        <span class="skill-item">Python</span>
-                        <span class="skill-item">JavaScript</span>
-                        <span class="skill-item">HTML/CSS</span>
-                    </div>
-                </div>
-                
-                <div class="mb-10 hidden-section">
-                    <h3 class="text-lg font-medium mb-4">Tools & Technologies</h3>
-                    <div>
-                        <span class="skill-item">Hyland Cloud</span>
-                        <span class="skill-item">Git</span>
-                        <span class="skill-item">Postman</span>
-                        <span class="skill-item">UML</span>
-                        <span class="skill-item">Visual Studio</span>
-                        <span class="skill-item">Firebase</span>
-                    </div>
-                </div>
-                
-                <div class="hidden-section">
-                    <h3 class="text-lg font-medium mb-4">Server Management</h3>
-                    <div>
-                        <span class="skill-item">Ubuntu Linux</span>
-                        <span class="skill-item">MySQL</span>
-                        <span class="skill-item">MongoDB</span>
-                        <span class="skill-item">APIs</span>
-                        <span class="skill-item">Flask</span>
-                        <span class="skill-item">RESTful Services</span>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Contact Section -->
-        <section id="contact" class="py-20 bg-black">
-            <div class="container mx-auto px-6 max-w-4xl">
-                <h2 class="text-3xl font-medium mb-12 hidden-section">Contact</h2>
-                
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 hidden-section">
-                    <div>
-                        <div class="mb-6">
-                            <h3 class="text-lg font-medium mb-2">Email</h3>
-                            <a href="mailto:michaelk2ny@gmail.com" class="text-gray-400 hover:text-white">michaelk2ny@gmail.com</a>
-                        </div>
-                        
-                        <div class="mb-6">
-                            <h3 class="text-lg font-medium mb-2">Phone</h3>
-                            <a href="tel:9145255707" class="text-gray-400 hover:text-white">(914)-525-5707</a>
-                        </div>
-                    </div>
-                    
-                    <div>
-                        <div class="mb-6">
-                            <h3 class="text-lg font-medium mb-2">Location</h3>
-                            <p class="text-gray-400">New York</p>
-                        </div>
-                        
-                        <div class="mb-6">
-                            <h3 class="text-lg font-medium mb-2">GitHub</h3>
-                            <a href="https://github.com/mkocovic2" target="_blank" class="text-gray-400 hover:text-white">github.com/mkocovic2</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Footer -->
-        <footer class="py-12 border-t border-gray-800">
-            <div class="container mx-auto px-6 text-center">
-                <p class="text-gray-400">© 2025 Michael Kocovic. All rights reserved.</p>
-            </div>
-        </footer>
-    </div>
-
-    <!-- Scripts -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/particles.js/2.0.0/particles.min.js"></script>
-    <script>
-        // Mobile menu toggle
-        document.getElementById('menu-toggle').addEventListener('click', function() {
-            const mobileMenu = document.getElementById('mobile-menu');
-            mobileMenu.classList.toggle('hidden');
-        });
-
-        // Particles.js configuration
-        particlesJS('particles-js', {
-            "particles": {
-                "number": {
-                    "value": 80,
-                    "density": {
-                        "enable": true,
-                        "value_area": 800
-                    }
-                },
-                "color": {
-                    "value": "#3B82F6"
-                },
-                "shape": {
-                    "type": "circle",
-                    "stroke": {
-                        "width": 0,
-                        "color": "#000000"
-                    },
-                },
-                "opacity": {
-                    "value": 0.5,
-                    "random": false,
-                    "anim": {
-                        "enable": false,
-                        "speed": 1,
-                        "opacity_min": 0.1,
-                        "sync": false
-                    }
-                },
-                "size": {
-                    "value": 3,
-                    "random": true,
-                    "anim": {
-                        "enable": false,
-                        "speed": 40,
-                        "size_min": 0.1,
-                        "sync": false
-                    }
-                },
-                "line_linked": {
-                    "enable": true,
-                    "distance": 150,
-                    "color": "#3B82F6",
-                    "opacity": 0.4,
-                    "width": 1
-                },
-                "move": {
-                    "enable": true,
-                    "speed": 2,
-                    "direction": "none",
-                    "random": false,
-                    "straight": false,
-                    "out_mode": "out",
-                    "bounce": false,
-                    "attract": {
-                        "enable": false,
-                        "rotateX": 600,
-                        "rotateY": 1200
-                    }
-                }
-            },
-            "interactivity": {
-                "detect_on": "canvas",
-                "events": {
-                    "onhover": {
-                        "enable": true,
-                        "mode": "grab"
-                    },
-                    "onclick": {
-                        "enable": true,
-                        "mode": "push"
-                    },
-                    "resize": true
-                },
-                "modes": {
-                    "grab": {
-                        "distance": 140,
-                        "line_linked": {
-                            "opacity": 1
-                        }
-                    },
-                    "bubble": {
-                        "distance": 400,
-                        "size": 40,
-                        "duration": 2,
-                        "opacity": 8,
-                        "speed": 3
-                    },
-                    "repulse": {
-                        "distance": 200,
-                        "duration": 0.4
-                    },
-                    "push": {
-                        "particles_nb": 4
-                    },
-                    "remove": {
-                        "particles_nb": 2
-                    }
-                }
-            },
-            "retina_detect": true
-        });
-
-        // Intersection Observer for animations
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                }
-            });
-        }, { threshold: 0.1 });
-
-        document.querySelectorAll('.hidden-section').forEach(section => {
-            observer.observe(section);
-        });
-
-        // Typed.js for dynamic text
-        document.addEventListener('DOMContentLoaded', function() {
-            new Typed('.typing-text', {
-                strings: [
-                    'DevOps Engineer',
-                    'Software Developer',
-                    'System Administrator',
-                    'Computer Science Student',
-                    'Problem Solver'
-                ],
-                typeSpeed: 70,
-                backSpeed: 50,
-                backDelay: 1500,
-                startDelay: 1000,
-                loop: true
-            });
-        });
-
-        // Smooth scrolling for anchor links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                
-                const targetId = this.getAttribute('href');
-                const targetElement = document.querySelector(targetId);
-                
-                if (targetElement) {
-                    window.scrollTo({
-                        top: targetElement.offsetTop - 80,
-                        behavior: 'smooth'
-                    });
-                    
-                    // Close mobile menu if open
-                    const mobileMenu = document.getElementById('mobile-menu');
-                    if (!mobileMenu.classList.contains('hidden')) {
-                        mobileMenu.classList.add('hidden');
-                    }
-                }
-            });
-        });
-
-        // GSAP animations for enhanced visual effects
-        document.addEventListener('DOMContentLoaded', function() {
-            // Animate project items with staggered effect
-            gsap.from('.project-item', {
-                duration: 0.8,
-                opacity: 0,
-                y: 20,
-                stagger: 0.15,
-                ease: "power3.out",
-                scrollTrigger: {
-                    trigger: '#projects',
-                    start: 'top 80%',
-                    toggleActions: 'play none none none'
-                }
-            });
-        });
-
-        // Dynamic year for copyright
-        document.addEventListener('DOMContentLoaded', function() {
-            const yearElement = document.querySelector('footer p');
-            if (yearElement) {
-                const currentYear = new Date().getFullYear();
-                yearElement.textContent = `© ${currentYear} Michael Kocovic. All rights reserved.`;
-            }
-        });
-    </script>
-</body>
+        <!-- Scripts -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/particles.js/2.0.0/particles.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/gsap.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/typed.js/2.0.12/typed.min.js"></script>
+        <script src="pagelogic.js"></script>
+    </body>
 </html>

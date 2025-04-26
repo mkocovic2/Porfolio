@@ -1,0 +1,174 @@
+body {
+    background-color: #000;
+    color: #f1f1f1;
+    font-family: "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
+    overflow-x: hidden;
+}
+
+/* Particles container */
+#particles-js {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    pointer-events: none;
+}
+
+.content {
+    position: relative;
+    z-index: 1;
+    background-color: transparent;
+}
+
+/* Animation styles */
+.hidden-section {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Project specific styles */
+#projects .project-item {
+    padding: 2rem;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    border-bottom: 1px solid rgba(31, 41, 55, 0.8);
+    padding-bottom: 1.5rem;
+}
+
+#projects .project-item:hover {
+    background: rgba(255, 255, 255, 0.05);
+    transform: translateY(-3px);
+}
+
+/* Skill items */
+.skill-item {
+    display: inline-block;
+    background: rgba(255, 255, 255, 0.1);
+    padding: 0.5rem 1rem;
+    margin: 0.25rem;
+    border-radius: 9999px;
+    font-size: 0.875rem;
+}
+
+/* Mobile menu */
+#mobile-menu {
+    display: none;
+    background-color: rgba(0, 0, 0, 0.9);
+}
+
+#mobile-menu.show {
+    display: block;
+}
+
+.nav-link {
+    position: relative;
+}
+
+.nav-link::after {
+    content: "";
+    position: absolute;
+    width: 0;
+    height: 1px;
+    bottom: -2px;
+    left: 0;
+    background-color: white;
+    transition: width 0.3s ease;
+}
+
+.nav-link:hover::after {
+    width: 100%;
+}
+
+.typing-text {
+    color: #ffc569;
+    font-weight: bold;
+}
+
+#about {
+    background-color: transparent;
+}
+
+.skill-item[data-skill="C++"] {
+    background-color: #00599c;
+    color: white;
+}
+.skill-item[data-skill="C#"] {
+    background-color: #68217a;
+    color: white;
+}
+.skill-item[data-skill="Java"] {
+    background-color: #e76f00;
+    color: white;
+}
+.skill-item[data-skill="Python"] {
+    background-color: #3776ab;
+    color: white;
+}
+.skill-item[data-skill="JavaScript"] {
+    background-color: #f7df1e;
+    color: black;
+}
+.skill-item[data-skill="HTML"] {
+    background-color: #e34f26;
+    color: white;
+}
+.skill-item[data-skill="CSS"] {
+    background-color: #1572b6;
+    color: white;
+}
+.skill-item[data-skill="Hyland Cloud"] {
+    background-color: #00a1df;
+    color: white;
+}
+.skill-item[data-skill="Git"] {
+    background-color: #f05032;
+    color: white;
+}
+.skill-item[data-skill="Postman"] {
+    background-color: #ff6c37;
+    color: white;
+}
+.skill-item[data-skill="UML"] {
+    background-color: #5a67d8;
+    color: white;
+}
+.skill-item[data-skill="Visual Studio"] {
+    background-color: #5c2d91;
+    color: white;
+}
+.skill-item[data-skill="Firebase"] {
+    background-color: #ffca28;
+    color: black;
+}
+.skill-item[data-skill="Ubuntu Linux"] {
+    background-color: #e95420;
+    color: white;
+}
+.skill-item[data-skill="MySQL"] {
+    background-color: #4479a1;
+    color: white;
+}
+.skill-item[data-skill="MongoDB"] {
+    background-color: #47a248;
+    color: white;
+}
+.skill-item[data-skill="APIs"] {
+    background-color: #6db33f;
+    color: white;
+}
+.skill-item[data-skill="Flask"] {
+    background-color: #000000;
+    color: white;
+}
+.skill-item[data-skill="RESTful Services"] {
+    background-color: #67a4d0;
+    color: white;
+}
